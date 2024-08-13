@@ -28,9 +28,5 @@ RUN apt-get autoremove -y && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
 
-# Remove the empty workspace directory, link to runpod network volume
-RUN rm -rf /workspace && \
-    ln -s /runpod-volume /workspace
-
 ADD src .
 RUN chmod +x /start.sh
